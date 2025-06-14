@@ -1,10 +1,7 @@
 import os
-import uuid
 
-from pyspark.sql.functions import expr
-
-from utils.kafka_helpers import topic_output_name, kafka_config
-from utils.mysql_helpers import write_sql_table
+from part_1.utils.kafka_helpers import topic_output_name, kafka_config
+from part_1.utils.mysql_helpers import write_sql_table
 
 
 def foreach_batch_function(batch_df, batch_id):

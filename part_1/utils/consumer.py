@@ -1,7 +1,7 @@
 import os
 
-from utils.kafka_helpers import topic_output_name, kafka_config
-from utils.spark_helpers import get_spark_session
+from part_1.utils.kafka_helpers import topic_output_name, kafka_config
+from part_1.utils.spark_helpers import get_spark_session
 
 
 def run_consumer():
