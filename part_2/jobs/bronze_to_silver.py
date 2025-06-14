@@ -32,10 +32,17 @@ def bronze_to_silver():
             expr(f"try_cast({col_name} as double) is not null")
         )
 
+    print("Bio DataFrame Schema:")
+    bio_df.show(10)
+
     bio_df.write.mode('overwrite').parquet(f'{SILVER_DIR}/{BIO_FILE}.parquet')
 
     results_df = spark.read.parquet(f'{BRONZE_DIR}/{RESULTS_FILE}.parquet')
     results_df = process_df(results_df, results_df_text_columns)
+
+    print("Results DataFrame Schema:")
+    results_df.show(10)
+
     results_df.write.mode('overwrite').parquet(f'{SILVER_DIR}/{RESULTS_FILE}.parquet')
 
 

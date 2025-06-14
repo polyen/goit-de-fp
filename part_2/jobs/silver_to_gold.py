@@ -35,6 +35,9 @@ def silver_to_gold():
         F.current_timestamp().alias("timestamp")
     )
 
+    print("Joined DataFrame Schema:")
+    gold_df.show(10)
+
     # записувати дані в gold/avg_stats.
     gold_df.write.mode('overwrite').parquet(f'{GOLD_DIR}/avg_stats.parquet')
 
